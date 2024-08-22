@@ -1,4 +1,4 @@
-import WelcomeMessage from './WelcomeMessage'
+import WelcomeMessage from './components/WelcomeMessage';
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -9,7 +9,10 @@ function App() {
 
   return (
     <>
-    <WelcomeMessage />
+     <div className="App">
+            <WelcomeMessage />
+            {/* Other components or elements */}
+        </div>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -30,6 +33,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      
     </>
   )
 }
