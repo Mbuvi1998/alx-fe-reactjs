@@ -1,21 +1,37 @@
 // src/App.jsx
-import React from 'react';
-import UserProfile from './components/UserProfile'; 
 
-const App = () => {
+import React from 'react';
+import Counter from './components/Counter';
+
+function App() {
   return (
-    <div>
-      <h1>Welcome to the User Profile App</h1>
-      <UserProfile 
-        name="Alice" 
-        age="25" 
-        bio="Loves hiking and photography" 
-      />
+    <div className="App">
+      <h1>Counter Application</h1>
+      <Counter />
     </div>
   );
-};
+}
 
 export default App;
+
+// // src/App.jsx
+// import React from 'react';
+// import UserProfile from './components/UserProfile'; 
+
+// const App = () => {
+//   return (
+//     <div>
+//       <h1>Welcome to the User Profile App</h1>
+//       <UserProfile 
+//         name="Alice" 
+//         age="25" 
+//         bio="Loves hiking and photography" 
+//       />
+//     </div>
+//   );
+// };
+
+// export default App;
 
 // import React from 'react';
 // import Header from './components/Header';
