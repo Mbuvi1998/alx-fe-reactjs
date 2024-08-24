@@ -1,12 +1,13 @@
 // Footer.jsx
-import React from 'react';
+import React from 'react'
 
-const Footer = () => {
+function Footer() {
   return (
-    <footer>
+    <div>
       <p>© 2023 City Lovers</p>
-    </footer>
-  );
-};
+    </div>
+  )
+}
 
-export default Footer;
+export default Footer
+

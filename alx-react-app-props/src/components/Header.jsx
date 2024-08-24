@@ -1,12 +1,13 @@
 // Header.jsx
-import React from 'react';
+import React from 'react'
 
-const Header = () => {
+function Header() {
   return (
-    <header>
+    <div>
       <h1>My Favorite Cities</h1>
-    </header>
-  );
-};
+    </div>
+  )
+}
 
-export default Header;
+export default Header
+
