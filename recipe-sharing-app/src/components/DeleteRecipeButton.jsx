@@ -33,7 +33,7 @@
 
 // export default DeleteRecipeButton;
 // src/components/DeleteRecipeButton.jsx
-import { useRecipeStore } from "../store/recipeStore";
+import { useRecipeStore } from "./recipeStore";
 import { useNavigate } from "react-router-dom";
 
 const DeleteRecipeButton = ({ recipeId }) => {
