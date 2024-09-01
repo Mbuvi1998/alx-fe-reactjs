@@ -107,4 +107,4 @@ const useRecipeStore = create((set) => ({
     })),
 }));
 
-export default useRecipeStore ;
+export {useRecipeStore} ;
