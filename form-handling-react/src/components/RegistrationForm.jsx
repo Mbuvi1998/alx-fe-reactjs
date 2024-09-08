@@ -20,7 +20,7 @@ const RegistrationForm = () => {
 
   const validate = () => {
     let valid = true;
-    const newErrors = { username: '', email: '', password: '' };
+    const newErrors = { value: { username }, value: { email }, value: { password }};
 
     if (!formData.username) {
       newErrors.username = 'Username is required';
