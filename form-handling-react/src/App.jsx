@@ -1,3 +1,30 @@
+// import React from 'react';
+// import RegistrationForm from './components/RegistrationForm';
+// import FormikForm from './components';
+
+// const App = () => {
+//   return (
+//     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
+//       <div className="w-full max-w-lg p-6 bg-white rounded-lg shadow-md">
+//         <h1 className="text-2xl font-bold mb-6 text-center">User Registration</h1>
+        
+//         <section className="mb-12">
+//           <h2 className="text-xl font-semibold mb-4">Controlled Components Form</h2>
+//           <RegistrationForm />
+//         </section>
+
+//         <section>
+//           <h2 className="text-xl font-semibold mb-4">Formik Form</h2>
+//           <FormikForm />
+//         </section>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
