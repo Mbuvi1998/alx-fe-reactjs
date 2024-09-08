@@ -2,71 +2,67 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
-const validationSchema = Yup.object({
-  username: Yup.string().required('Username is required'),
-  email: Yup.string().email('Email is invalid').required('Email is required'),
-  password: Yup.string().required('Password is required'),
-});
-
 const FormikForm = () => {
-  const handleSubmit = (values, { setSubmitting }) => {
-    console.log('Form data:', values);
-    // Simulate API call here
-    setSubmitting(false);
-  };
+    const initialValues = {
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+    };
 
-  return (
-    <Formik
-      initialValues={{ username: '', email: '', password: '' }}
-      validationSchema={validationSchema}
-      onSubmit={handleSubmit}
-    >
-      {({ isSubmitting }) => (
-        <Form className="space-y-4">
-          <div>
-            <label htmlFor="username" className="block">Username:</label>
-            <Field
-              type="text"
-              id="username"
-              name="username"
-              className="p-2 border rounded"
-            />
-            <ErrorMessage name="username" component="p" className="text-red-500" />
-          </div>
+    const validationSchema = Yup.object({
+        firstName: Yup.string().required('First Name is required'),
+        lastName: Yup.string().required('Last Name is required'),
+        email: Yup.string().email('Invalid email address').required('Email is required'),
+        password: Yup.string().required('Password is required'),
+        confirmPassword: Yup.string()
+            .oneOf([Yup.ref('password'), null], 'Passwords must match')
+            .required('Confirm Password is required'),
+    });
 
-          <div>
-            <label htmlFor="email" className="block">Email:</label>
-            <Field
-              type="email"
-              id="email"
-              name="email"
-              className="p-2 border rounded"
-            />
-            <ErrorMessage name="email" component="p" className="text-red-500" />
-          </div>
+    const handleSubmit = (values) => {
+        // Handle form submission here
+        console.log(values);
+    };
 
-          <div>
-            <label htmlFor="password" className="block">Password:</label>
-            <Field
-              type="password"
-              id="password"
-              name="password"
-              className="p-2 border rounded"
-            />
-            <ErrorMessage name="password" component="p" className="text-red-500" />
-          </div>
+    return (
+        <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
+            <Form>
+                <div>
+                    <label htmlFor="firstName">First Name</label>
+                    <Field type="text" id="firstName" name="firstName" />
+                    <ErrorMessage name="firstName" component="div" />
+                </div>
 
-          <button
-            type="submit"
-            className="bg-blue-500 text-white p-2 rounded"
-            disabled={isSubmitting}
-          >
-            Register
-          </button>
-        </Form>
-      )}
-    </Formik>
-  );
+                <div>
+                    <label htmlFor="lastName">Last Name</label>
+                    <Field type="text" id="lastName" name="lastName" />
+                    <ErrorMessage name="lastName" component="div" />
+                </div>
+
+                <div>
+                    <label htmlFor="email">Email</label>
+                    <Field type="email" id="email" name="email" />
+                    <ErrorMessage name="email" component="div" />
+                </div>
+
+                <div>
+                    <label htmlFor="password">Password</label>
+                    <Field type="password" id="password" name="password" />
+                    <ErrorMessage name="password" component="div" />
+                </div>
+
+                <div>
+                    <label htmlFor="confirmPassword">Confirm Password</label>
+                    <Field type="password" id="confirmPassword" name="confirmPassword" />
+                    <ErrorMessage name="confirmPassword" component="div" />
+                </div>
+
+                <button type="submit">Submit</button>
+            </Form>
+        </Formik>
+    );
 };
 
 export default FormikForm;
