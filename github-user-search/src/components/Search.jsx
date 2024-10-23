@@ -1,12 +1,25 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
-const Search = ({ onSearch }) => {
+const Search = () => {
   const [username, setUsername] = useState('');
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (username.trim()) {
-      onSearch(username);
+    setLoading(true);
+    setError('');
+    setUser(null);
+
+    try {
+      const response = await axios.get(`https://api.github.com/users/${username}`);
+      setUser(response.data);
+    } catch (err) {
+      setError('Looks like we can’t find the user');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -21,6 +34,18 @@ const Search = ({ onSearch }) => {
         />
         <button type="submit">Search</button>
       </form>
+
+      {loading && <p>Loading...</p>}
+      {error && <p>{error}</p>}
+      {user && (
+        <div>
+          <img src={user.avatar_url} alt="User Avatar" width="100" />
+          <h2>{user.name || user.login}</h2>
+          <a href={user.html_url} target="_blank" rel="noopener noreferrer">
+            Visit GitHub Profile
+          </a>
+        </div>
+      )}
     </div>
   );
 };
