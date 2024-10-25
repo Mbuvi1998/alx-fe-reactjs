@@ -1,33 +1,5 @@
-/* src/components/Search.css */
+/* src/index.css */
 
-.search-container {
-  max-width: 400px;
-  margin: auto;
-  text-align: center;
-}
-
-.input-field {
-  padding: 0.5em;
-  width: 80%;
-  margin: 1em 0;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
-.search-button {
-  padding: 0.5em 1em;
-  background-color: #0070f3;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-}
-
-.user-info {
-  margin-top: 1em;
-}
-
-.user-info img {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
